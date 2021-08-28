@@ -4,7 +4,7 @@ This repo is designed to provide some simple examples to get you started with hi
 
 ## Installing requirements
 
-When installing the requirements, make sure you install the correct reqirements for your operating system.
+When installing the requirements, make sure you install the correct requirements for your operating system.
 
 Windows:
 ```sh
@@ -24,7 +24,7 @@ This library sports a very discord.py-like syntax, making for an easier time mig
 
 To run the hikari-lightbulb bot:
 ```sh
-python -m lightbulb-bot
+python -OO -m lightbulb-bot
 ```
 
 ### hikari-tanjun
@@ -33,9 +33,9 @@ This library has a syntax far more similar to [click](https://github.com/pallets
 
 To run the hikari-tanjun bot:
 ```sh
-python -m tanjun-bot
+python -OO -m tanjun-bot
 ```
 
 ## License
 
-This repo is provided under the [BSD 3-Clause License](https://github.com/parafoxia/hikari-intro). This means you can take anything you want from this repo to use in your own bots, though redistributions must retain the license.
+This repo is provided under the [BSD 3-Clause License](https://github.com/parafoxia/hikari-intro/blob/main/LICENSE). This means you can take anything you want from this repo to use in your own bots, though redistributions must retain the license.
