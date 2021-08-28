@@ -1,0 +1,2 @@
+-r requirements-nt.txt
+uvloop>=16
