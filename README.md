@@ -18,17 +18,23 @@ pip install -r requirements-unix.txt
 
 ## Running the bots
 
+### hikari-lightbulb
+
+This library sports a very discord.py-like syntax, making for an easier time migrating for those wishing to switch. It is less powerful than hikari-tanjun, but is the more stable of the two options at present.
+
 To run the hikari-lightbulb bot:
 ```sh
 python -m lightbulb-bot
 ```
 
+### hikari-tanjun
+
+This library has a syntax far more similar to [click](https://github.com/pallets/click/), a CLI app builder that relies almost entirely on the usage of decorators. It is more powerful than hikari-lightbulb with better support for slash commands and interactions, but does not currently have a stable version. The version this repo currently uses is the unreleased v2.0.0a1 version.
+
 To run the hikari-tanjun bot:
 ```sh
 python -m tanjun-bot
 ```
-
-**Please note**: There is no suitable stable version of hikari-tanjun, so this repo uses the unreleased version 2.0.0a1. If you want utmost stability, use hikari-lightbulb.
 
 ## License
 
