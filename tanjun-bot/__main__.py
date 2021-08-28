@@ -13,8 +13,8 @@ def create_bot() -> hikari.GatewayBot:
     with open("./secrets/token") as f:
         token = f.read().strip()
 
-    # Create the main bot instance.
-    bot = hikari.GatewayBot(token)
+    # Create the main bot instance with all intents.
+    bot = hikari.GatewayBot(token, intents=hikari.Intents.ALL)
 
     # Create a client from the bot instance. Doing this automatically
     # links the bot and the client together, so you don't need to worry
