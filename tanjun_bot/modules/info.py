@@ -26,8 +26,7 @@ async def command_userinfo(ctx: tanjun.abc.Context, target: hikari.Member) -> No
         hikari.Embed(
             title="User information",
             description=f"ID: {target.id}",
-            # This is what happens when you let a Canadian build a lib d:
-            color=hikari.Colour(0x563275),
+            colour=hikari.Colour(0x563275),
             # Doing it like this is important.
             timestamp=dt.datetime.now().astimezone(),
         )
