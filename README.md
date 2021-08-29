@@ -1,6 +1,6 @@
 # An intro to hikari
 
-This repo is designed to provide some simple examples to get you started with hikari. Contained in this repo are bots designed with both the [hikari-lightbulb](https://github.com/tandemdude/hikari-lightbulb) and [hikari-tanjun](https://github.com/FasterSpeeding/Tanjun) command handlers. This repo is designed with extra stability in mind, but if you want newer features, [check out this experimental repo](https://github.com/Carberra/hikari-testing).
+This repo provides some simple examples to get you started with [hikari](https://github.com/hikari-py/hikari). Contained in this repo are bots designed with both the [hikari-lightbulb](https://github.com/tandemdude/hikari-lightbulb) and [hikari-tanjun](https://github.com/FasterSpeeding/Tanjun) command handlers. This repo is designed with extra stability in mind, but if you want newer features, [check out this experimental repo](https://github.com/Carberra/hikari-testing).
 
 ## Installing requirements
 
