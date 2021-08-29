@@ -29,7 +29,7 @@ def create_bot() -> hikari.GatewayBot:
 
     # Load all modules. This can either take discord.py-like strings,
     # or a series of Path objects.
-    client.load_modules(*Path("./tanjun-bot/modules").glob("*.py"))
+    client.load_modules(*Path("./tanjun_bot/modules").glob("*.py"))
     return bot
 
 
