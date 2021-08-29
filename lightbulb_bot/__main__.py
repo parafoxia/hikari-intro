@@ -6,7 +6,7 @@ import hikari
 import lightbulb
 
 
-def create_bot() -> hikari.GatewayBot:
+def create_bot() -> lightbulb.Bot:
     # Load the token from a secrets file you'll need to create yourself.
     with open("./secrets/token") as f:
         token = f.read().strip()
