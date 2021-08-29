@@ -24,7 +24,7 @@ This library sports a very discord.py-like syntax, making for an easier time mig
 
 To run the hikari-lightbulb bot:
 ```sh
-python -OO -m lightbulb-bot
+python -OO -m lightbulb_bot
 ```
 
 ### hikari-tanjun
@@ -33,7 +33,7 @@ This library has a syntax far more similar to [click](https://github.com/pallets
 
 To run the hikari-tanjun bot:
 ```sh
-python -OO -m tanjun-bot
+python -OO -m tanjun_bot
 ```
 
 ## License
