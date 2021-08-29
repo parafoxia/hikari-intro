@@ -16,7 +16,14 @@ Anything else:
 pip install -r requirements-unix.txt
 ```
 
-## Running the bots
+## Setup
+
+There is a little bit of setup you need to do before testing the bots.
+
+1. Create a file called "token" in a directory called "secrets", and put your bot's token in there.
+2. Change the `GUILD_ID` variable to your own guild's ID. This is in the [\_\_init__ file](https://github.com/parafoxia/hikari-intro/blob/main/lightbulb_bot/__init__.py) for the hikari-lightbulb bot, and the [\_\_main__ file](https://github.com/parafoxia/hikari-intro/blob/main/tanjun_bot/__main__.py) for the hikari-tanjun bot.
+
+## Testing the bots
 
 ### hikari-lightbulb
 
