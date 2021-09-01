@@ -1,9 +1,9 @@
 import datetime as dt
-import random
 import typing as t
 
 import hikari
 # import lightbulb  # You may need lightbulb if you extend this.
+import lightbulb
 from lightbulb import slash_commands
 
 from .. import GUILD_ID
@@ -12,36 +12,28 @@ from .. import GUILD_ID
 # Create a slash command class. The name is automatically set to the
 # lower case version of the class name.
 class Userinfo(slash_commands.SlashCommand):
-    @property
-    def options(self) -> list[hikari.CommandOption]:
-        # The options the command will have.
-        return [
-            # This creates a required member option. Validation is
-            # handled for you -- Discord won't let you send the command
-            # unless it's a valid member. How cool is that?!
-            hikari.CommandOption(
-                name="target",
-                description="The member to get information about.",
-                type=hikari.OptionType.USER,
-                is_required=True,
-            ),
-        ]
-
-    @property
-    def description(self) -> str:
-        # The help text for the command.
-        return "Get info on a server member."
-
-    @property
-    def enabled_guilds(self) -> t.Optional[t.Iterable[int]]:
-        # This sets what guilds the command is enabled in. If this is
-        # None, the command is considered global, and can be used in
-        # any guild. Otherwise, a list of guild IDs should be passed.
-        return (GUILD_ID,)
+    # The help text for the command.
+    description: str = "Get info on a server member."
+    # This sets what guilds the command is enabled in. If this is
+    # None, the command is considered global, and can be used in
+    # any guild. Otherwise, a list of guild IDs should be passed.
+    enabled_guilds: t.Optional[t.Iterable[int]] = (GUILD_ID,)
+    # The options the command will have.
+    options: list[hikari.CommandOption] = [
+        # This creates a required member option. Validation is
+        # handled for you -- Discord won't let you send the command
+        # unless it's a valid member. How cool is that?!
+        hikari.CommandOption(
+            name="target",
+            description="The member to get information about.",
+            type=hikari.OptionType.USER,
+            is_required=True,
+        ),
+    ]
 
     async def callback(self, ctx) -> None:
         # Convert the return value to a Member object.
-        target = ctx.guild.get_member(int(ctx.options["target"].value))
+        target = ctx.guild.get_member(int(ctx.option_values.target))
         if not target:
             await ctx.respond("That user is not in the server.")
             return
@@ -86,3 +78,11 @@ class Userinfo(slash_commands.SlashCommand):
         # bot reply to a message (when not send from a slash command
         # invocation), allow mentions, make the message ephemeral, etc.
         await ctx.respond(embed)
+
+
+def load(bot: lightbulb.Bot):
+    bot.add_slash_command(Userinfo)
+
+
+def unload(bot: lightbulb.Bot):
+    bot.remove_slash_command("userinfo")

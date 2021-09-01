@@ -17,12 +17,10 @@ def create_bot() -> lightbulb.Bot:
     # Gather all slash command files.
     commands = Path("./lightbulb_bot/commands").glob("*.py")
 
-    # Import each SlashCommand object and add it to the bot, loading
-    # the command.
+    # Load each slash command extension into the bot.
     for c in commands:
-        mod = import_module(f"lightbulb_bot.commands.{c.stem}")
-        com = mod.__dict__[f"{c.stem}".title()]
-        bot.add_slash_command(com)
+        bot.load_extension(f"lightbulb_bot.commands.{c.stem}")
+
     return bot
 
 
