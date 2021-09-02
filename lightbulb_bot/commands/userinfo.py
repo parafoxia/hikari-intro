@@ -2,7 +2,6 @@ import datetime as dt
 import typing as t
 
 import hikari
-# import lightbulb  # You may need lightbulb if you extend this.
 import lightbulb
 from lightbulb import slash_commands
 
