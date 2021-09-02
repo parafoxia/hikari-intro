@@ -63,12 +63,12 @@ class Userinfo(slash_commands.SlashCommand):
             .add_field(
                 name="Created on",
                 value=f"<t:{created_at}:d> (<t:{created_at}:R>)",
-                inline=False
+                inline=False,
             )
             .add_field(
                 name="Joined on",
                 value=f"<t:{joined_at}:d> (<t:{joined_at}:R>)",
-                inline=False
+                inline=False,
             )
             .add_field(name="Roles", value=" | ".join(r.mention for r in roles))
         )
