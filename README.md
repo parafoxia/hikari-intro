@@ -4,17 +4,12 @@ This repo provides some simple examples to get you started with [hikari](https:/
 
 ## Installing requirements
 
-When installing the requirements, make sure you install the correct requirements for your operating system.
+You can install the necessary requirements by doing:
 
-Windows:
 ```sh
-pip install -r requirements-nt.txt
+pip install -r requirements.txt
 ```
 
-Anything else:
-```sh
-pip install -r requirements-unix.txt
-```
 
 ## Setup
 
