@@ -14,21 +14,14 @@ class Userinfo(slash_commands.SlashCommand):
     # The help text for the command.
     description: str = "Get info on a server member."
     # This sets what guilds the command is enabled in. If this is
-    # None, the command is considered global, and can be used in
+    # not defined or is None, the command is considered global, and can be used in
     # any guild. Otherwise, a list of guild IDs should be passed.
     enabled_guilds: t.Optional[t.Iterable[int]] = (GUILD_ID,)
     # The options the command will have.
-    options: list[hikari.CommandOption] = [
-        # This creates a required member option. Validation is
-        # handled for you -- Discord won't let you send the command
-        # unless it's a valid member. How cool is that?!
-        hikari.CommandOption(
-            name="target",
-            description="The member to get information about.",
-            type=hikari.OptionType.USER,
-            is_required=True,
-        ),
-    ]
+    # This creates a required member option. Validation is
+    # handled for you -- Discord won't let you send the command
+    # unless it's a valid member. How cool is that?!
+    target: hikari.User = slash_commands.Option("The member to get information about.")
 
     async def callback(self, ctx) -> None:
         # Convert the return value to a Member object.
