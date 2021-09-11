@@ -14,36 +14,18 @@ class Dice(slash_commands.SlashCommand):
     # The help text for the command.
     description: str = "Roll one or more dice."
     # This sets what guilds the command is enabled in. If this is
-    # None, the command is considered global, and can be used in
+    # not defined or is None, the command is considered global, and can be used in
     # any guild. Otherwise, a list of guild IDs should be passed.
     enabled_guilds: t.Optional[t.Iterable[int]] = (GUILD_ID,)
     # The options the command will have.
-    options: list[hikari.CommandOption] = [
-        # This creates a required int option. Validation is handled
-        # for you -- Discord won't let you send the command unless
-        # it's a number. How cool is that?!
-        hikari.CommandOption(
-            name="number",
-            description="The number of dice to roll.",
-            type=hikari.OptionType.INTEGER,
-            is_required=True,
-        ),
-        # These next two are the same, but are optional. We will
-        # have to work out a default value later.
-        hikari.CommandOption(
-            name="sides",
-            description="The number of sides each die will have.",
-            type=hikari.OptionType.INTEGER,
-            is_required=False,
-
-        ),
-        hikari.CommandOption(
-            name="bonus",
-            description="A fixed number to add to the total roll.",
-            type=hikari.OptionType.INTEGER,
-            is_required=False,
-        ),
-    ]
+    # This creates a required int option. Validation is handled
+    # for you -- Discord won't let you send the command unless
+    # it's a number. How cool is that?!
+    number: int = slash_commands.Option("The number of dice to roll.")
+    # These next two are the same, but are optional. We will
+    # have to work out a default value later.
+    sides: t.Optional[int] = slash_commands.Option("The number of sides each die will have.")
+    bonus: t.Optional[int] = slash_commands.Option("A fixed number to add to the total roll.")
 
     async def callback(self, ctx) -> None:
         # Get the value from the required option.
