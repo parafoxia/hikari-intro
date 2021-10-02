@@ -24,16 +24,15 @@ class Dice(slash_commands.SlashCommand):
     number: int = slash_commands.Option("The number of dice to roll.")
     # These next two are the same, but are optional. We will
     # have to work out a default value later.
-    sides: t.Optional[int] = slash_commands.Option("The number of sides each die will have.")
-    bonus: t.Optional[int] = slash_commands.Option("A fixed number to add to the total roll.")
+    sides: t.Optional[int] = slash_commands.Option("The number of sides each die will have.", default=6)
+    bonus: t.Optional[int] = slash_commands.Option("A fixed number to add to the total roll.", default=0)
 
     async def callback(self, ctx) -> None:
         # Get the value from the required option.
-        number = ctx.option_values.number
-        # Get the value from the optional options, or set a default
-        # value if none is available.
-        sides = getattr(ctx.options.get("sides"), "value", 6)
-        bonus = getattr(ctx.options.get("bonus"), "value", 0)
+        number = ctx.options.number
+        # Get the value from the optional options, or the default if the option was not provided.
+        sides = ctx.options.sides
+        bonus = ctx.options.bonus
 
         if number > 25:
             await ctx.respond("No more than 25 dice can be rolled at once.")
