@@ -2,6 +2,8 @@
 
 This repo provides some simple examples to get you started with [hikari](https://github.com/hikari-py/hikari). Contained in this repo are bots designed with both the [hikari-lightbulb](https://github.com/tandemdude/hikari-lightbulb) and [hikari-tanjun](https://github.com/FasterSpeeding/Tanjun) command handlers. This repo is designed with extra stability in mind, but if you want newer features, [check out this experimental repo](https://github.com/Carberra/hikari-testing).
 
+This repo only provides examples for slash commands at the moment.
+
 ## Installing requirements
 
 You can install the necessary requirements by doing:
@@ -22,7 +24,7 @@ There is a little bit of setup you need to do before testing the bots.
 
 ### hikari-lightbulb
 
-This library sports a very discord.py-like syntax, making for an easier time migrating for those wishing to switch. It is less powerful than hikari-tanjun, but is the more stable of the two options at present.
+This library sports a very discord.py-like syntax (when making message commands), making for an easier time migrating for those wishing to switch. It is less powerful than hikari-tanjun, but is the more stable of the two options at present.
 
 To run the hikari-lightbulb bot:
 ```sh
