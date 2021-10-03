@@ -35,8 +35,9 @@ def create_bot() -> hikari.GatewayBot:
 
 if __name__ == "__main__":
     if os.name != "nt":
-        # uvloop is only available on UNIX systems, but instead of coding
-        # for the OS, we include this if statement to make life easier.
+        # uvloop is only available on UNIX systems, but instead of
+        # coding for the OS, we include this if statement to make life
+        # easier.
         import uvloop
 
         uvloop.install()
