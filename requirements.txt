@@ -1,4 +1,4 @@
 hikari[speedups]==2.0.0.dev101
 hikari-lightbulb==1.4.0
 git+https://github.com/FasterSpeeding/Tanjun@c1cb6c4aa1b103cda92f6779753867102ceb12d9
-uvloop>=0.16; sys_platform != 'nt'
+uvloop>=0.16; sys_platform != "win32"
