@@ -1,6 +1,4 @@
 import os
-from importlib import import_module
-from pathlib import Path
 
 import hikari
 import lightbulb
@@ -14,12 +12,8 @@ def create_bot() -> lightbulb.Bot:
     # Create the main bot instance with all intents.
     bot = lightbulb.Bot(token=token, prefix="!", intents=hikari.Intents.ALL)
 
-    # Gather all slash command files.
-    commands = Path("./lightbulb_bot/commands").glob("*.py")
-
-    # Load each slash command extension into the bot.
-    for c in commands:
-        bot.load_extension(f"lightbulb_bot.commands.{c.stem}")
+    # Load all extensions.
+    bot.load_extensions_from("./lightbulb_bot/commands")
 
     return bot
 

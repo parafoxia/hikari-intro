@@ -23,16 +23,19 @@ class Userinfo(slash_commands.SlashCommand):
     # send the command unless it's a valid member. How cool is that?!
     target: hikari.User = slash_commands.Option("The member to get information about.")
 
-    async def callback(self, ctx) -> None:
-        # Convert the return value to a Member object.
-        target = ctx.guild.get_member(int(ctx.option_values.target))
+    async def callback(self, ctx: slash_commands.SlashCommandContext) -> None:
+        # Convert the Snowflake value to a Member object.
+        target = ctx.get_guild().get_member(ctx.options.target)
         if not target:
             await ctx.respond("That user is not in the server.")
             return
 
         created_at = int(target.created_at.timestamp())
+        print(created_at)
         joined_at = int(target.joined_at.timestamp())
+        print(joined_at)
         roles = (await target.fetch_roles())[1:]  # All but @everyone.
+        print(roles)
 
         # Function calls can be chained when creating embeds.
         embed = (
@@ -67,7 +70,7 @@ class Userinfo(slash_commands.SlashCommand):
         )
 
         # To send a message, use ctx.respond. Using kwargs, you can make
-        # the bot reply to a message (when not send from a slash command
+        # the bot reply to a message (when not sent from a slash command
         # invocation), allow mentions, make the message ephemeral, etc.
         await ctx.respond(embed)
 

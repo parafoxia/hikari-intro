@@ -1,7 +1,6 @@
 import random
 import typing as t
 
-import hikari
 import lightbulb
 from lightbulb import slash_commands
 
@@ -27,8 +26,8 @@ class Dice(slash_commands.SlashCommand):
     sides: t.Optional[int] = slash_commands.Option("The number of sides each die will have.", default=6)
     bonus: t.Optional[int] = slash_commands.Option("A fixed number to add to the total roll.", default=0)
 
-    async def callback(self, ctx) -> None:
-        # Get the value from the required option.
+    async def callback(self, ctx: slash_commands.SlashCommandContext) -> None:
+        # Get the option values.
         number = ctx.options.number
         sides = ctx.options.sides
         bonus = ctx.options.bonus
@@ -44,7 +43,7 @@ class Dice(slash_commands.SlashCommand):
         rolls = [random.randint(1, sides) for _ in range(number)]
 
         # To send a message, use ctx.respond. Using kwargs, you can make the
-        # bot reply to a message (when not send from a slash command
+        # bot reply to a message (when not sent from a slash command
         # invocation), allow mentions, make the message ephemeral, etc.
         await ctx.respond(
             " + ".join(f"{r}" for r in rolls)
