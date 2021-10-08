@@ -31,11 +31,8 @@ class Userinfo(slash_commands.SlashCommand):
             return
 
         created_at = int(target.created_at.timestamp())
-        print(created_at)
         joined_at = int(target.joined_at.timestamp())
-        print(joined_at)
         roles = (await target.fetch_roles())[1:]  # All but @everyone.
-        print(roles)
 
         # Function calls can be chained when creating embeds.
         embed = (
