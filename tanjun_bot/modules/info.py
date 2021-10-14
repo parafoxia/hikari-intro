@@ -39,7 +39,7 @@ async def command_userinfo(ctx: tanjun.abc.Context, target: hikari.Member) -> No
         # These are just a number of example fields.
         .add_field(name="Discriminator", value=target.discriminator, inline=True)
         .add_field(name="Bot?", value=target.is_bot, inline=True)
-        .add_field(name="No. of roles", value=len(roles) - 1, inline=True)
+        .add_field(name="No. of roles", value=len(roles), inline=True)
         .add_field(
             name="Created on",
             value=f"<t:{created_at}:d> (<t:{created_at}:R>)",
