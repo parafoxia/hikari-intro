@@ -4,10 +4,18 @@ import lightbulb
 from lightbulb import commands
 
 
+
+# These two are the same type, but are optional. We can provide a
+# default value simply by using the `default` kwarg.
 @lightbulb.option("bonus", "A fixed number to add to the total roll.", int, default=0)
 @lightbulb.option("sides", "The number of sides each die will have.", int, default=6)
+# The options the command will have. This creates a required int
+# option. Validation is handled for you -- Discord won't let you
+# send the command unless it's a number. How cool is that?!
 @lightbulb.option("number", "The number of dice to roll.", int)
-@lightbulb.command("dict", "Roll one or more dice.")
+# Convert the function into a command
+@lightbulb.command("dice", "Roll one or more dice.")
+# Define the types of command that this function will implement
 @lightbulb.implements(commands.SlashCommand)
 async def dice(ctx: lightbulb.context.Context) -> None:
     # Extract the options from the context
