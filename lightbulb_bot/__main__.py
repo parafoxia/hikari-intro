@@ -12,7 +12,12 @@ def create_bot() -> lightbulb.BotApp:
         token = f.read().strip()
 
     # Create the main bot instance with all intents.
-    bot = lightbulb.BotApp(token=token, prefix="!", intents=hikari.Intents.ALL, default_enabled_guilds=lightbulb_bot.GUILD_ID)
+    bot = lightbulb.BotApp(
+        token=token,
+        prefix="!",
+        intents=hikari.Intents.ALL,
+        default_enabled_guilds=lightbulb_bot.GUILD_ID,
+    )
 
     # Load all extensions.
     bot.load_extensions_from("./lightbulb_bot/commands")

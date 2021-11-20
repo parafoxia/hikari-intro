@@ -4,7 +4,6 @@ import lightbulb
 from lightbulb import commands
 
 
-
 # These two are the same type, but are optional. We can provide a
 # default value simply by using the `default` kwarg.
 @lightbulb.option("bonus", "A fixed number to add to the total roll.", int, default=0)
