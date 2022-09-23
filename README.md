@@ -40,6 +40,16 @@ To run the hikari-tanjun bot:
 python -OO -m tanjun_bot
 ```
 
+### hikari-crescent
+
+This library is built to keep your project neat and tidy. Commands are created like dataclasses, so the syntax should be familiar. This library
+also requires 0 code duplication when creating commands.
+
+To run the hikari-crescent bot:
+```sh
+python -OO -m crescent_bot
+```
+
 ## License
 
 This repo is provided under the [BSD 3-Clause License](https://github.com/parafoxia/hikari-intro/blob/main/LICENSE). This means you can take anything you want from this repo to use in your own bots, though redistributions must retain the license.
