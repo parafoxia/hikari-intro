@@ -24,7 +24,7 @@ There is a little bit of setup you need to do before testing the bots.
 
 ### hikari-lightbulb
 
-This library sports a very discord.py-like syntax (when making message commands), making for an easier time migrating for those wishing to switch. It is less powerful than hikari-tanjun, but is the more stable of the two options at present.
+This library sports a very discord.py-like syntax (when making message commands), making for an easier time migrating for those wishing to switch. It is less powerful than hikari-tanjun, but is the more stable of the three options at present.
 
 To run the hikari-lightbulb bot:
 ```sh
@@ -42,8 +42,8 @@ python -OO -m tanjun_bot
 
 ### hikari-crescent
 
-This library is built to keep your project neat and tidy. Commands are created like dataclasses, so the syntax should be familiar. This library
-also requires 0 code duplication when creating commands.
+This library is built to keep your project neat and tidy. Commands are created like dataclasses, so the syntax should be familiar. Crescent only supports application commands, but has the best support for interactions
+out of all three libraries.
 
 To run the hikari-crescent bot:
 ```sh
