@@ -11,7 +11,7 @@ def create_bot() -> crescent.Bot:
         token = f.read().strip()
 
     # Create the main bot instance with all intents.
-    bot = crescent.Bot(token, intents=hikari.Intents.ALL_UNPRIVILEGED)
+    bot = crescent.Bot(token, intents=hikari.Intents.ALL)
 
     # Load all modules. This can either take discord.py-like strings,
     # or a series of Path objects.
