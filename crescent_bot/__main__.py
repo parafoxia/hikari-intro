@@ -20,13 +20,13 @@ def create_bot() -> crescent.Bot:
 
 
 if __name__ == "__main__":
-    # if os.name != "nt":
+    if os.name != "nt":
         # uvloop is only available on UNIX systems, but instead of
         # coding for the OS, we include this if statement to make life
         # easier.
-        # import uvloop
+        import uvloop
 
-        # uvloop.install()
+        uvloop.install()
 
     # Create and run the bot.
     create_bot().run()
