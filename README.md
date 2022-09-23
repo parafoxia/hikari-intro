@@ -1,6 +1,6 @@
 # An intro to hikari
 
-This repo provides some simple examples to get you started with [hikari](https://github.com/hikari-py/hikari). Contained in this repo are bots designed with both the [hikari-lightbulb](https://github.com/tandemdude/hikari-lightbulb), [hikari-tanjun](https://github.com/FasterSpeeding/Tanjun) and [hikari-crescent](https://github.com/magpie-dev/hikari-crescent/) command handlers. This repo is designed with extra stability in mind, but if you want newer features, [check out this experimental repo](https://github.com/Carberra/hikari-testing).
+This repo provides some simple examples to get you started with [hikari](https://github.com/hikari-py/hikari). Contained in this repo are bots designed with both the [hikari-lightbulb](https://github.com/tandemdude/hikari-lightbulb), [hikari-tanjun](https://github.com/FasterSpeeding/Tanjun), and [hikari-crescent](https://github.com/magpie-dev/hikari-crescent/) command handlers. This repo is designed with extra stability in mind, but if you want newer features, [check out this experimental repo](https://github.com/Carberra/hikari-testing).
 
 This repo only provides examples for slash commands at the moment.
 
