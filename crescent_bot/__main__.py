@@ -1,9 +1,12 @@
 import os
-from pathlib import Path
 
 import hikari
 import crescent
+from hikari import Intents
 
+# To use the GUILD_MEMBERS intent, you will need to enable it
+# on the Discord Developer Portal for your application
+INTENTS = Intents.GUILD_MEMBERS | Intents.GUILDS
 
 def create_bot() -> crescent.Bot:
     # Load the token from a secrets file you'll need to create yourself.
@@ -11,7 +14,7 @@ def create_bot() -> crescent.Bot:
         token = f.read().strip()
 
     # Create the main bot instance with all intents.
-    bot = crescent.Bot(token, intents=hikari.Intents.ALL)
+    bot = crescent.Bot(token, intents=INTENTS)
 
     # Load all modules. This can either take discord.py-like strings,
     # or a series of Path objects.

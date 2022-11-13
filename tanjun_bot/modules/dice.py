@@ -13,26 +13,18 @@ component = tanjun.Component()
 # This creates a required int option. Validation is handled for you --
 # Discord won't let you send the command unless it's a number. How cool
 # is that?!
-@tanjun.with_int_slash_option("number", "The number of dice to roll (max: 25).")
+@tanjun.with_int_slash_option("number", "The number of dice to roll (max: 25).", max_value=25)
 # These next two are the same, but are optional. Setting a default value
 # automatically marks it as optional.
-@tanjun.with_int_slash_option("sides", "The number of sides each die will have.", default=6)
+@tanjun.with_int_slash_option("sides", "The number of sides each die will have (max: 100).", default=6, max_value=100)
 @tanjun.with_int_slash_option("bonus", "A fixed number to add to the total roll.", default=0)
 # This sets the name and help for the command.
 @tanjun.as_slash_command("dice", "Roll one or more dice.")
 async def command_dice(ctx: tanjun.abc.Context, number: int, sides: int, bonus: int) -> None:
-    if number > 25:
-        await ctx.respond("No more than 25 dice can be rolled at once.")
-        return
-
-    if sides > 100:
-        await ctx.respond("The dice cannot have more than 100 sides.")
-        return
-
-    rolls = [random.randint(1, sides) for i in range(number)]
+    rolls = [random.randint(1, sides) for _ in range(number)]
 
     # To send a message, use ctx.respond. Using kwargs, you can make the
-    # bot reply to a message (when not send from a slash command
+    # bot reply to a message (when not sent from a slash command
     # invocation), allow mentions, make the message ephemeral, etc.
     await ctx.respond(
         " + ".join(f"{r}" for r in rolls)

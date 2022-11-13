@@ -3,10 +3,12 @@ from pathlib import Path
 
 import hikari
 import tanjun
+from hikari import Intents
 
-# You'll want to change this.
-GUILD_ID = 845688627265536010
 
+# To use the GUILD_MEMBERS intent, you will need to enable it
+# on the Discord Developer Portal for your application
+INTENTS = Intents.GUILD_MEMBERS | Intents.GUILDS
 
 def create_bot() -> hikari.GatewayBot:
     # Load the token from a secrets file you'll need to create yourself.
@@ -14,18 +16,14 @@ def create_bot() -> hikari.GatewayBot:
         token = f.read().strip()
 
     # Create the main bot instance with all intents.
-    bot = hikari.GatewayBot(token, intents=hikari.Intents.ALL)
+    bot = hikari.GatewayBot(token, intents=INTENTS)
 
     # Create a client from the bot instance. Doing this automatically
     # links the bot and the client together, so you don't need to worry
     # about that.
-    #
-    # The `set_global_commands` kwarg is useful for testing. If this is
-    # set to True, you can use commands in any guild, but they may take
-    # an hour to propagate. Passing a guild ID makes them available
-    # immediately in the given guild. This can also be set on a
-    # per-command basis.
-    client = tanjun.Client.from_gateway_bot(bot, set_global_commands=GUILD_ID)
+    client = tanjun.Client.from_gateway_bot(bot)
+    # Stop the client from listening for messages
+    client.set_message_accepts(tanjun.MessageAcceptsEnum.NONE)
 
     # Load all modules. This can either take discord.py-like strings,
     # or a series of Path objects.

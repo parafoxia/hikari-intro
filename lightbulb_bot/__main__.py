@@ -2,9 +2,16 @@ import os
 
 import hikari
 import lightbulb
-
+from hikari import Intents
 import lightbulb_bot
 
+
+INTENTS = (
+    Intents.ALL_MESSAGES
+    | Intents.MESSAGE_CONTENT
+    | Intents.GUILD_MEMBERS
+    | Intents.GUILDS
+)
 
 def create_bot() -> lightbulb.BotApp:
     # Load the token from a secrets file you'll need to create yourself.
@@ -14,8 +21,8 @@ def create_bot() -> lightbulb.BotApp:
     # Create the main bot instance with all intents.
     bot = lightbulb.BotApp(
         token=token,
-        prefix="!",
-        intents=hikari.Intents.ALL,
+        prefix=lightbulb.when_mentioned_or("!"),
+        intents=INTENTS,
         default_enabled_guilds=lightbulb_bot.GUILD_ID,
     )
 
