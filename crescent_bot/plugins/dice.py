@@ -13,27 +13,18 @@ class Dice:
     # The `crescent.option` function creates a required int option.
     # Validation is handled for you -- Discord won't let you send
     # the command unless it's a number. How cool is that?!
-    number = crescent.option(int, "The number of dice to roll.")
+    number = crescent.option(int, "The number of dice to roll (max: 25).", max_value=25)
 
     # These two are the same type, but are optional. We can provide a
     # default value simply by using the `default` kwarg.
     sides = crescent.option(
-        int, "The number of sides each die will have.", default=6
+        int, "The number of sides each die will have (max: 100).", default=6, max_value=100
     )
     bonus = crescent.option(
         int, "A fixed number to add to the total roll.", default=0
     )
 
     async def callback(self, ctx: crescent.Context):
-        # Option validation
-        if self.number > 25:
-            await ctx.respond("No more than 25 dice can be rolled at once.")
-            return
-
-        if self.sides > 100:
-            await ctx.respond("The dice cannot have more than 100 sides.")
-            return
-
         rolls = [random.randint(1, self.sides) for _ in range(self.number)]
 
         # To send a message, use ctx.respond. Using kwargs, you can make the
