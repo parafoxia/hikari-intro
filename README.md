@@ -26,7 +26,7 @@ You **must** create a file called `token` in a directory called `secrets` in the
 > [!NOTE]
 > The command handlers are sorted alphabetically with no particular preference for one or the other. It is recommended that you give all of them a try before coming to conclusions.
 
-## hikari-arc
+### hikari-arc
 
 This library was designed from the ground up with modern Python features in mind. It has intuitive functional syntax for creating commands, and an easy to understand [documentation](https://arc.hypergonial.com/). `arc` only supports application commands.
 
