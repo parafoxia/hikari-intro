@@ -1,5 +1,3 @@
-import datetime as dt
-
 import hikari
 import lightbulb
 from lightbulb import commands
@@ -16,48 +14,26 @@ from lightbulb import commands
 async def user_info(ctx: lightbulb.context.Context) -> None:
     target_ = ctx.options.target
     # Convert the option into a Member object if lightbulb couldn't resolve it automatically
-    target = (
-        target_
-        if isinstance(target_, hikari.Member)
-        else ctx.get_guild().get_member(target_)
-    )
+    target = target_ if isinstance(target_, hikari.Member) else ctx.get_guild().get_member(target_)
     if not target:
         await ctx.respond("That user is not in the server.")
         return
 
     created_at = int(target.created_at.timestamp())
     joined_at = int(target.joined_at.timestamp())
-    roles = (await target.fetch_roles())[1:]  # All but @everyone.
+    roles = target.get_roles()
 
     # Function calls can be chained when creating embeds.
     embed = (
-        hikari.Embed(
-            title="User information",
-            description=f"ID: {target.id}",
-            colour=hikari.Colour(0x563275),
-            # Doing it like this is important.
-            timestamp=dt.datetime.now().astimezone(),
-        )
+        hikari.Embed(title="User information", description=f"ID: {target.id}", colour=hikari.Colour(0x563275))
         .set_author(name="Information")
-        .set_footer(
-            text=f"Requested by {ctx.member.display_name}",
-            icon=ctx.member.avatar_url,
-        )
+        .set_footer(text=f"Requested by {ctx.author.username}", icon=ctx.author.avatar_url)
         .set_thumbnail(target.avatar_url)
         # These are just a number of example fields.
-        .add_field(name="Discriminator", value=target.discriminator, inline=True)
-        .add_field(name="Bot?", value=target.is_bot, inline=True)
-        .add_field(name="No. of roles", value=len(roles), inline=True)
-        .add_field(
-            name="Created on",
-            value=f"<t:{created_at}:d> (<t:{created_at}:R>)",
-            inline=False,
-        )
-        .add_field(
-            name="Joined on",
-            value=f"<t:{joined_at}:d> (<t:{joined_at}:R>)",
-            inline=False,
-        )
+        .add_field(name="Bot?", value=str(target.is_bot), inline=True)
+        .add_field(name="No. of roles", value=str(len(roles)), inline=True)
+        .add_field(name="Created on", value=f"<t:{created_at}:d> (<t:{created_at}:R>)", inline=False)
+        .add_field(name="Joined on", value=f"<t:{joined_at}:d> (<t:{joined_at}:R>)", inline=False)
         .add_field(name="Roles", value=" | ".join(r.mention for r in roles))
     )
 
