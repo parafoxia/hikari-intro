@@ -22,7 +22,7 @@ There is a little bit of setup you need to do before testing the bots.
 
 ## hikari-arc
 
-This library was designed from the ground up with modern Python features in mind. It has intuitive functional syntax for declaring commands, and an easy to understand [documentation](https://arc.hypergonial.com/), and support for both Gateway & REST bots. `arc` only supports application commands.
+This library was designed from the ground up with modern Python features in mind. It has intuitive functional syntax for creating commands, and an easy to understand [documentation](https://arc.hypergonial.com/). `arc` only supports application commands.
 
 To run the hikari-arc bot:
 ```sh
