@@ -1,7 +1,5 @@
-hikari[speedups]~=2.0.0.dev101; python_version < "3.10"
-hikari~=2.0.0.dev101; python_version == "3.10"
-hikari-lightbulb~=2.0.0
+hikari[speedups]~=2.0.0.dev122
+hikari-lightbulb~=2.3.5
 hikari-tanjun>=2.17.2,<3.0.0
 hikari-arc>=1.0.0,<2.0.0
-hikari-crescent>=0.3.3,<1.0
-uvloop>=0.16; sys_platform != "win32"
+hikari-crescent>=0.6.5,<1.0
