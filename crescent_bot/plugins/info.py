@@ -6,7 +6,7 @@ plugin = crescent.Plugin[hikari.GatewayBot, None]()
 
 @plugin.include
 # This command is disabled in dms because we want the user to choose member.
-@crescent.command(name="user-info", dm_enabled=False)
+@crescent.command(name="userinfo", dm_enabled=False)
 class UserInfo:
     # The options the command will have. This creates a required member
     # option.
