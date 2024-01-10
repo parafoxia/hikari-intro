@@ -1,6 +1,6 @@
 # An intro to hikari
 
-This repo provides some simple examples to get you started with [hikari](https://github.com/hikari-py/hikari). Contained in this repo are bots designed with both the [hikari-lightbulb](https://github.com/tandemdude/hikari-lightbulb), [hikari-tanjun](https://github.com/FasterSpeeding/Tanjun), [hikari-crescent](https://github.com/hikari-crescent/hikari-crescent/) and [hikari-arc](https://github.com/hypergonial/hikari-arc) command handlers.
+This repo provides some simple examples to get you started with [hikari](https://github.com/hikari-py/hikari). Contained in this repo are bots designed with the [hikari-arc](https://github.com/hypergonial/hikari-arc), [hikari-crescent](https://github.com/hikari-crescent/hikari-crescent/), [hikari-lightbulb](https://github.com/tandemdude/hikari-lightbulb) and [hikari-tanjun](https://github.com/FasterSpeeding/Tanjun) command handlers.
 
 This repo only provides examples for slash commands at the moment.
 
@@ -14,11 +14,17 @@ pip install -r requirements.txt
 
 ## Setup
 
-There is a little bit of setup you need to do before testing the bots.
+There is a little bit of setup you need to do before testing the bots, specifically:
 
-1. Create a file called "token" in a directory called "secrets", and put your bot's token in there.
+You **must** create a file called `token` in a directory called `secrets` in the root directory of this project, and paste your bot's token in there.
+
+> [!TIP]
+> Be sure to leave **not** add a file extension to the end of this file (e.g. `.txt`), otherwise it will not work.
 
 ## Testing the bots
+
+> [!NOTE]
+> The command handlers are sorted alphabetically with no particular preference for one or the other. It is recommended that you give all of them a try before coming to conclusions.
 
 ## hikari-arc
 
